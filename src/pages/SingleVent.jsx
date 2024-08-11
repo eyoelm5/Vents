@@ -92,9 +92,6 @@ const SingleVent = () => {
                   className="h-6 px-1 cursor-pointer"
                   onClick={openCommentModal}
                 />
-                <div className="catagory bg-slate-400 px-2 py-1 rounded-lg">
-                  {vent.category}
-                </div>
                 {isSupportModalOpen && (
                   <CommentModal onClose={closeCommentModal} id={id} />
                 )}
