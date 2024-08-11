@@ -37,7 +37,7 @@ function Signin() {
         <LoadingPage />
       ) : (
         <div className="flex flex-col flex-grow">
-          <div className="flex items-center justify-center bg-gray-200 w-full flex-grow">
+          <div className="flex items-center justify-center w-full flex-grow">
             <div className="w-full max-w-xs">
               <form
                 className="rounded px-8 pt-6 pb-8 mb-4 "
@@ -47,7 +47,7 @@ function Signin() {
 
                 <div className="mb-4">
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] leading-tight focus:outline-none focus:shadow-outline"
                     id="email"
                     type="email"
                     placeholder="Email"
@@ -57,7 +57,7 @@ function Signin() {
                 </div>
                 <div className="mb-4">
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] leading-tight focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
                     placeholder="Password"
@@ -72,7 +72,7 @@ function Signin() {
 
                 <div className="flex items-center justify-between">
                   <button
-                    className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="text-black bg-gradient-to-r from-[#897EFF] to-[#FFCEa0] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit"
                   >
                     Login
