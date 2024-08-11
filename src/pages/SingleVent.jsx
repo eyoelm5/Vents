@@ -72,7 +72,7 @@ const SingleVent = () => {
       {isLoading ? (
         <LoadingPage />
       ) : (
-        <div className="blog bg-white w-[90%] my-4 mt-10 mx-auto flex-grow gap-5 grid grid-cols-1 items-center lg:gap-10">
+        <div className="blog bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center m-4">
           <div className="flex px-3 py-3 flex-col order-last ml-3">
             <div className="flex-grow">
               <div className="title text-xl font-bold pt-4 text-justify">
@@ -103,6 +103,7 @@ const SingleVent = () => {
           </div>
         </div>
       )}
+      <div className="flex flex-col flex-grow"></div>
       <Footer />
     </div>
   );
