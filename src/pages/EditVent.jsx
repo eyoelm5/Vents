@@ -85,7 +85,7 @@ const EditVent = () => {
                 :
                 <div className="content-center flex-grow">
                 <div className="max-w-96 mx-auto my-10 p-2">
-                    <h1 className="text-3xl">Create Post</h1>
+                    <h1 className="text-3xl">Edit Vent</h1>
                     <form onSubmit={sumbit}>
                         <input 
                             type="text" 
@@ -104,7 +104,7 @@ const EditVent = () => {
                                 className="bg-white h-20"
                                 required
                             />
-                            <button className="text-black bg-gradient-to-r from-[#897EFF] to-[#FFCEa0] p-2 rounded-md mt-20" type="submit">Create Post</button>
+                            <button className="text-black bg-gradient-to-r from-[#897EFF] to-[#FFCEa0] p-2 rounded-md mt-20" type="submit">Edit Vent</button>
                         </form>
                     </div>
                 </div>

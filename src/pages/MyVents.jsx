@@ -28,7 +28,7 @@ const MyVents = () => {
   }, [isLoading])
 
   return (
-    <div className="bg-gray-300">
+    <div>
       <Chatbot />
       <Header />
       <div className="flex flex-col min-h-[calc(100vh-80px)]">
@@ -38,7 +38,6 @@ const MyVents = () => {
         :
         vents?.message ? (
           <div className="flex flex-col flex-grow text-center text-xl items-center justify-center h-full">
-            <img src={ventImg} alt="NEW POST" className="w-28 "/>
             <p className=" justify-center p-3">
               When you share your vents, they will appear here.
             </p>
