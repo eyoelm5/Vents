@@ -5,7 +5,6 @@ import Chatbot from "../components/Chatbot";
 import Footer from "../components/Footer";
 import api from "../../api/vents"
 import LoadingPage from "../components/Loading"
-import vent from "../assets/Vent.png"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -32,14 +31,10 @@ const formats = [
 ];
 
 const CreateBlog = () => {
-    const [imageUploaded, setImageUploaded] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     const [ventData, setVentData] = useState({
-        authorId:"",
         title: "",
-        category: "",
-        image:"",
         content: "",
     })
 
@@ -50,28 +45,6 @@ const CreateBlog = () => {
             [name]:value
         }))
     }
-
-    const [image, setImage] = useState(null);
-    const [preview, setPreview] = useState(vent);
-  
-    const handleImageChange = (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        setImage(file);
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setPreview(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-
-    useEffect( () => {
-        setVentData(prevData => ({
-            ...prevData,
-            image: preview
-        }))
-    }, [preview])
 
     function markDownChange(text){
         setVentData(prevData => ({
@@ -84,10 +57,9 @@ const CreateBlog = () => {
         setIsLoading(true)
         event.preventDefault();
         try{
-            await api.vent("/", ventData)
+            await api.post("/", ventData)
             setIsLoading(false)
-            setImageUploaded(true)
-            navigate('/myposts')
+            navigate('/myvents')
         }catch(err){
             console.log(err)
         }
@@ -108,47 +80,21 @@ const CreateBlog = () => {
                         <input 
                             type="text" 
                             placeholder="Title" 
-                            className="block p-2 w-full rounded-md mt-4"
+                            className="block p-2 w-full rounded-md mt-4 bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] mb-4"
                             onChange={handleChange}
                             name = "title"
                             value={ventData.title}
                             required
                         />
-                        <select name="category" onChange={handleChange} value={ventData.category} className="w-full p-2 my-4 rounded-md">
-                            <option value="" disabled>Choose Category</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Art">Art</option>
-                            <option value="Education">Education</option>
-                            <option value="Nutrition">Nutrition</option>
-                            <option value="Fashion">Fashion</option>
-                            <option value="Music">Music</option>
-                            <option value="Mindfulness">Mindfulness</option>
-                            <option value="Uncategorized">Uncatagorized</option>
-                        </select>
-                        <ReactQuill
-                            modules={modules}
-                            formats={formats}
-                            value={ventData.content}
-                            onChange={markDownChange}
-                            className="bg-white h-64"
-                            required
-                        />
-                        <img src={preview} alt="Post Image" className="w-full max-h-64 my-5"/>
-                        {!imageUploaded && (
-                        <label className="block my-5">
-                            <input
-                            type="file"
-                            onChange={handleImageChange}
-                            className="block w-full text-sm text-slate-500
-                                file:py-2 file:px-4
-                                file:rounded-xl file:border-0
-                                file:text-base file:font-semibold
-                                file:bg-slate-50 file:text-black"
-                            required
+                            <ReactQuill
+                                modules={modules}
+                                formats={formats}
+                                value={ventData.content}
+                                onChange={markDownChange}
+                                className="bg-white h-20"
+                                required
                             />
-                        </label>
-                )}
-                            <button className="text-white bg-black p-2 rounded-md mt-4" type="submit">Create Post</button>
+                            <button className="text-black bg-gradient-to-r from-[#897EFF] to-[#FFCEa0] p-2 rounded-md mt-20" type="submit">Create Post</button>
                         </form>
                     </div>
                 </div>
