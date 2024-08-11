@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import author from "../assets/image.png";
-import commentIcon from "../assets/comment.png";;
+import commentIcon from "../assets/comment.png";
+import liked from "../assets/like.png";
+import notLiked from "../assets/like1.png";
+import bookmarking from "../assets/bookmark.png";
+import bookmarked from "../assets/bookmarked.png";
 
 function Vent(props) {
+  const [like, setLike] = useState(false);
+  const [book, setBook] = useState(false);
+  
   const navigate = useNavigate()
+  const likeImg = like ? liked : notLiked;
+  const toggleBook = () => {
+    setBook((prevBook) => !prevBook);
+  };
+
+  const bookImg = book ? bookmarked : bookmarking;
+
   const calculateTimeElapsed = () => {
     const postDate = new Date(props.date);
     const milli = postDate.getTime()
@@ -37,50 +50,38 @@ function Vent(props) {
   const diff = calculateTimeElapsed();
 
   const handleClick = () =>{
-    navigate(`/singleVent/${props.id}`)
+    navigate(`/singlepost/${props.id}`)
   }
   return (
-    <div onClick={handleClick} className="blog bg-white px-3 py-6 max-w-96 md:max-w-full rounded-3xl gap-5 grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-10 hover:shadow-lg hover:cursor-pointer ">
-      <div className="flex flex-col order-last lg:order-first ml-3">
-        <div className="author flex items-center">
-          <img
-            src={props.profilePicture}
-            alt="author profile"
-            className="w-16 rounded-lg h-16"
-            onError={(e) => {
-              e.target.onerror = null; // Prevents infinite loop if default image also fails
-              e.target.src = author;
-            }}
-          />
-          <div className="author-detail">
-            <div className="author-name font-bold px-3">{props.name}</div>
-            <div className="date px-3">{diff}</div>
-          </div>
-        </div>
-      <div className="flex-grown">
+    <div onClick={handleClick} className="vent bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center hover:shadow-lg hover:cursor-pointer ">
+      <div className="ml-3">
+        <div className="date px-3">{diff}</div>
+
+      <div>
           <div className="title text-xl font-bold pt-4 text-justify">
             {props.title}
           </div>
           <div className="detail justify-between py-4 text-justify" dangerouslySetInnerHTML={{ __html: props.body }}>
           </div>
       </div> 
-      <div className="mt-auto">
+      <div>
         <hr className=" bg-gray-700 w-full h-1 mb-3" />
-        <div className="flex justify-start">
+        <div className="flex">
           <img
             src={commentIcon}
             alt="comments"
             className="h-6 px-1"
           />
-          <div className="catagory bg-slate-400 px-2 py-1 rounded-lg">
-            {props.category}
-          </div>
+          <img
+            src={bookImg}
+            alt="Bookmark"
+            className="h-7 px-1"
+            onClick={toggleBook}
+          />
         </div>
         </div>
         </div>
-        <img src={props.img} alt="Vent Img" className="rounded-3xl w-full lg:min-h-[70%] max-h-72 px-1 lg:px-5" />
       </div>
-
 
   );
 }

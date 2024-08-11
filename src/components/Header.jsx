@@ -14,7 +14,7 @@ const Header = ({dataChange, page, data}) => {
     }
     return (
         <>
-        <div className='bg-[#1D1B20] flex justify-around lg:justify-between items-center'>
+        <div className='bg-gradient-to-r from-[#897EFF] to-[#FFCEa0] flex justify-around lg:justify-between items-center'>
             <div className='flex justify-between  w-full py-4 min-w-80 lg:max-w-96 lg:mx-4 items-center'>
                 <Link to = "/"><img src={home} alt="Home image" className='w-12 h-12'/></Link>
                 {page && <SearchBar search = {dataChange} page = {page} data={data}/>}

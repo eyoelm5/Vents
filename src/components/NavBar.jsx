@@ -36,8 +36,8 @@ const NavBar = ({id, handle}) =>{
                 </>
                 :
                 <>
-                    <li className={id === "main" ? 'text-white hover:text-[#696565] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/createblog">Create Vent</Link></li>
-                    <li className={id === "main" ? 'text-white hover:text-[#696565] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/myposts">My Vents</Link></li>
+                    <li className={id === "main" ? 'text-black py-3 px-10 bg-white rounded-3xl hover:bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/createblog">Create Vent</Link></li>
+                    <li className={id === "main" ? 'text-black py-3 px-10 bg-white rounded-3xl hover:bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/myposts">My Vents</Link></li>
                 </>
 
             :
@@ -46,8 +46,8 @@ const NavBar = ({id, handle}) =>{
             </>
             :
             <>
-                <li className={id === "main" ? 'text-white hover:text-[#696565] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/signin">Sign In</Link></li>
-                <li className={id === "main" ? 'text-white hover:text-[#696565] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/authors">Authors</Link></li>
+                <li className={id === "main" ? 'text-black py-3 px-10 bg-white rounded-3xl hover:bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/signin">Sign In</Link></li>
+                <li className={id === "main" ? 'text-black py-3 px-10 bg-white rounded-3xl hover:bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] text-xl': 'bg-white text-[#696565] py-3 px-4 text-center border-t-[1px] border-black hover:bg-gray-400 hover:text-black'}><Link to="/authors">Authors</Link></li>
             </> 
         }
         </>
