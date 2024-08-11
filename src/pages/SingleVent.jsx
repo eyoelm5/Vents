@@ -74,23 +74,6 @@ const SingleVent = () => {
       ) : (
         <div className="blog bg-white w-[90%] my-4 mt-10 mx-auto flex-grow gap-5 grid grid-cols-1 items-center lg:gap-10">
           <div className="flex px-3 py-3 flex-col order-last ml-3">
-            {/* <div className="author flex items-center">
-              <img
-                src={vent.authorId.profilePicture}
-                alt="author profile"
-                className="w-16 h-16"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = author;
-                }}
-              />
-              <div className="author-detail">
-                <div className="author-name font-bold px-3">
-                  {vent.authorId.name}
-                </div>
-                <div className="date px-3">{diff}</div>
-              </div>
-            </div> */}
             <div className="flex-grow">
               <div className="title text-xl font-bold pt-4 text-justify">
                 {vent.title}
@@ -118,13 +101,6 @@ const SingleVent = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-full h-80">
-            <img
-              src={post.image}
-              alt="Blog Img"
-              className="object-cover w-full h-full"
-            />
-          </div> */}
         </div>
       )}
       <Footer />
