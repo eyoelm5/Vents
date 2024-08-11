@@ -17,7 +17,7 @@ const VentsPage = () => {
         const response = await api.get("/");
         const resData = response.data;
         setVents(resData);
-        setSearch(resData); 
+        setSearch(resData);
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch vents", error);
@@ -27,7 +27,6 @@ const VentsPage = () => {
     getVents();
   }, []);
 
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header page="Blogs" data={vents} dataChange={setSearch} />
@@ -36,7 +35,7 @@ const VentsPage = () => {
         <LoadingPage />
       ) : (
         <div className="flex-grow">
-          <div className="blogs grid grid-cols-2 gap-4 px-2 md:px-8 md:py-3 py-1">
+          <div className="blogs grid grid-cols-1 sm:grid-cols-2 gap-4 px-2 md:px-8 md:py-3 py-1">
             {search.map((vent) => {
               return (
                 <Vent
