@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -15,12 +15,14 @@ const Home = () => {
           </p>
 
           <div className="mt-6">
-            <button className="px-6 py-2 mr-4 bg-white text-gray-800 rounded hover:bg-gray-700">
-              Get Started
-            </button>
-            <button className="px-6 py-2 text-white bg-orange-300 rounded hover:bg-orange-300">
+            <Link to="/vents">
+              <button className="px-6 py-2 mr-4 bg-white text-gray-800 rounded hover:bg-gray-200">
+                Get Started
+              </button>
+            </Link>
+            <Link to='/signin'><button className="px-6 py-2 text-white bg-orange-300 rounded hover:bg-orange-400">
               Login
-            </button>
+            </button></Link>
           </div>
         </div>
         <footer className="absolute bottom-2 text-center w-full">
