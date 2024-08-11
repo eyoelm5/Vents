@@ -12,14 +12,14 @@ const CommentModal = ({ onClose, id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [newComment, setNewComment] = useState("");
   const [error, setError] = useState("");
-  const[trigger, setTrigger] = useState(false)
-  
+  const [trigger, setTrigger] = useState(false);
+
   useEffect(() => {
     const fetchComments = async () => {
       setIsLoading(true);
       try {
         const response = await api.get(`/${id}`);
-        setComments(response.data.post.comments);
+        setComments(response.data.vent.comments);
       } catch (err) {
         setError("Failed to load comments.");
       } finally {
@@ -32,14 +32,14 @@ const CommentModal = ({ onClose, id }) => {
   const submitComment = async () => {
     setIsLoading(true);
     setError("");
-    const finalComment= { content: newComment };
+    const finalComment = { content: newComment };
     try {
       await api.post(`/${id}/comment`, finalComment);
       setNewComment("");
     } catch (err) {
       setError("Failed to submit comment.");
     } finally {
-      setTrigger(true)
+      setTrigger(true);
       setIsLoading(false);
     }
   };
@@ -49,9 +49,11 @@ const CommentModal = ({ onClose, id }) => {
     setError("");
     try {
       await api.delete(`/${id}/comment/${commentId}`);
-      setComments((prevComments) => prevComments.filter(comment => comment._id !== commentId));
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment._id !== commentId)
+      );
     } catch (err) {
-      setError("Failed to delete comment")
+      setError("Failed to delete comment");
     } finally {
       setIsLoading(false);
     }
@@ -63,46 +65,44 @@ const CommentModal = ({ onClose, id }) => {
         <div className="flex justify-between px-5">
           <h2 className="text-2xl font-semibold mb-4">Comments</h2>
           <span onClick={onClose} className="text-red-500 hover:cursor-pointer">
-              <img className="w-10" src={closeIcon} alt="close comments" />
+            <img className="w-10" src={closeIcon} alt="close comments" />
           </span>
         </div>
         <div className="flex flex-col">
-
-          {
-            error? 
+          {error ? (
             <p className="text-red-500 mb-2">{error}</p>
-            :
-            isLoading?
+          ) : isLoading ? (
             <p className="text-gray-600">Loading comments...</p>
-            :
+          ) : (
             <div className="space-y-4">
-            {
-            comments.length === 0 && !isLoading? 
-            <p>No comments yet.</p>
-            :
-            comments.slice(0,4).map((comment) => (
-              <div
-                key={comment._id}
-                className="flex items-start justify-between p-4 border rounded-lg shadow-sm bg-gray-100"
-              >
-                <div className="flex-1">
-                  <p className="text-lg font-semibold">{comment.authorId.name}</p>
-                  <p className="mt-1 text-gray-700">{comment.content}</p>
-                </div>
-                {
-                comment.authorId._id === status.userId && (
-                  <button
-                    onClick={() => deleteComment(comment._id)}
-                    className="ml-4 text-red-500 hover:cursor-pointer"
+              {comments.length === 0 && !isLoading ? (
+                <p>No comments yet.</p>
+              ) : (
+                comments.slice(0, 4).map((comment) => (
+                  <div
+                    key={comment._id}
+                    className="flex items-start justify-between p-4 border rounded-lg shadow-sm bg-gray-100"
                   >
-                    <img src={deleteIcon} alt="Delete" className="w-6" />
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-          }
-          
+                    <div className="flex-1">
+                      {/* <p className="text-lg font-semibold">
+                        {comment.authorId.name}
+                      </p> */}
+                      <p className="mt-1 text-gray-700">{comment.content}</p>
+                    </div>
+                    {/* {comment.authorId._id === status.userId && (
+                      <button
+                        onClick={() => deleteComment(comment._id)}
+                        className="ml-4 text-red-500 hover:cursor-pointer"
+                      >
+                        <img src={deleteIcon} alt="Delete" className="w-6" />
+                      </button>
+                    )} */}
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+
           {status.loggedIn ? (
             <div className="mt-6">
               <input
