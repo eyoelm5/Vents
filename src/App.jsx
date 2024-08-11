@@ -1,5 +1,6 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Vents from "./pages/Vents";
+import Home from "./pages/Home";
 import MyVents from "./pages/MyVents";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
@@ -13,7 +14,8 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route path="/" element={<Vents  />}/>
+          <Route path="/vents" element={<Vents  />}/>
+          <Route path="/" element={<Home  />}/>
           <Route path="/createblog" element={<CreateBlog />}/>
           <Route path="/singlepost/:id" element={<SingleVent />}/>
           <Route path="/editblog/:id" element={<EditVent />} />
