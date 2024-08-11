@@ -26,7 +26,7 @@ const VentsPage = () => {
     };
     getVents();
   }, []);
-
+  console.log(search);
   return (
     <div className="flex flex-col min-h-screen">
       <Header page="Blogs" data={vents} dataChange={setSearch} />

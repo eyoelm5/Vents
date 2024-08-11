@@ -9,8 +9,8 @@ import bookmarked from "../assets/bookmarked.png";
 function Vent(props) {
   const [like, setLike] = useState(false);
   const [book, setBook] = useState(false);
-  
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
   const likeImg = like ? liked : notLiked;
   const toggleBook = () => {
     setBook((prevBook) => !prevBook);
@@ -20,7 +20,7 @@ function Vent(props) {
 
   const calculateTimeElapsed = () => {
     const postDate = new Date(props.date);
-    const milli = postDate.getTime()
+    const milli = postDate.getTime();
     const now = new Date().getTime();
     const elapsed = now - milli;
 
@@ -49,40 +49,40 @@ function Vent(props) {
 
   const diff = calculateTimeElapsed();
 
-  const handleClick = () =>{
-    navigate(`/singlepost/${props.id}`)
-  }
+  const handleClick = () => {
+    navigate(`/singlepost/${props.id}`);
+  };
   return (
-    <div onClick={handleClick} className="vent bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center hover:shadow-lg hover:cursor-pointer ">
+    <div
+      onClick={handleClick}
+      className="vent bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center hover:shadow-lg hover:cursor-pointer "
+    >
       <div className="ml-3">
-        <div className="date px-3">{diff}</div>
+        {/* <div className="date px-3">{diff}</div> */}
 
-      <div>
+        <div>
           <div className="title text-xl font-bold pt-4 text-justify">
             {props.title}
           </div>
-          <div className="detail justify-between py-4 text-justify" dangerouslySetInnerHTML={{ __html: props.body }}>
+          <div
+            className="detail justify-between py-4 text-justify"
+            dangerouslySetInnerHTML={{ __html: props.body }}
+          ></div>
+        </div>
+        <div>
+          <hr className=" bg-gray-700 w-full h-1 mb-3" />
+          <div className="flex">
+            <img src={commentIcon} alt="comments" className="h-6 px-1" />
+            <img
+              src={bookImg}
+              alt="Bookmark"
+              className="h-7 px-1"
+              onClick={toggleBook}
+            />
           </div>
-      </div> 
-      <div>
-        <hr className=" bg-gray-700 w-full h-1 mb-3" />
-        <div className="flex">
-          <img
-            src={commentIcon}
-            alt="comments"
-            className="h-6 px-1"
-          />
-          <img
-            src={bookImg}
-            alt="Bookmark"
-            className="h-7 px-1"
-            onClick={toggleBook}
-          />
-        </div>
-        </div>
         </div>
       </div>
-
+    </div>
   );
 }
 
