@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
+import Chatbot from "../components/Chatbot"
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
       <Header />
+      <Chatbot />
       <div className="flex items-center justify-center min-h-[calc(100vh_-_80px)] bg-gradient-to-b from-orange-200 to-purple-300">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-purple-900">VENT</h1>

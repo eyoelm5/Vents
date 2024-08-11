@@ -55,7 +55,7 @@ function Vent(props) {
   return (
     <div
       onClick={handleClick}
-      className="vent bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center hover:shadow-lg hover:cursor-pointer "
+      className="vent flex flex-col bg-gradient-to-r from-[rgba(190,162,212,28%)] to-[rgba(255,206,160,28%)] px-3 py-6 rounded-3xl items-center hover:shadow-lg hover:cursor-pointer "
     >
       <div className="ml-3">
         {/* <div className="date px-3">{diff}</div> */}
@@ -65,7 +65,7 @@ function Vent(props) {
             {props.title}
           </div>
           <div
-            className="detail justify-between py-4 text-justify"
+            className="detail justify-between py-4 flex-grow text-justify"
             dangerouslySetInnerHTML={{ __html: props.body }}
           ></div>
         </div>
