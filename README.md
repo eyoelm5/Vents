@@ -23,47 +23,9 @@ To set up the project locally, follow these steps:
    git clone https://github.com/yourusername/vent-mental-health-ai.git
    ```
 
-2. **Navigate to the Project Directory**
-
-   ```bash
-   cd vent-mental-health-ai
-   ```
-
-3. **Install Dependencies**
-
-   For the backend:
-
-   ```bash
-   cd api
-   npm install
-   ```
-
-   For the frontend:
-
-   ```bash
-   cd client
-   npm install
-   ```
-
-4. **Start the Development Servers**
-
-   Start the backend server:
-
-   ```bash
-   cd api
-   npm start
-   ```
-
-   Start the frontend server:
-
-   ```bash
-   cd client
-   npm start
-   ```
-
 ## Application Structure
 
-### Frontend (Client)
+### Frontend (src)
 
 - **`src/components`**: Contains React components such as `MyVent`, `SearchComponent`, and `Vent`.
 - **`src/pages`**: Includes page components like `Home`, `Vents`, `MyVents`, `Signin`, `Signup`, `CreateVent`, `EditVent`, `UpdateProfile`, and `SingleVent`.
