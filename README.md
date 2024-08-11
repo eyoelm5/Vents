@@ -1,6 +1,5 @@
-Sure, here’s a `README.md` tailored to your project based on the provided code and idea:
 
-```markdown
+
 # Vent: Mental Health AI
 
 ## Overview
@@ -27,10 +26,10 @@ To set up the project locally, follow these steps:
 
 ### Frontend (src)
 
-- **`src/components`**: Contains React components such as `MyVent`, `SearchComponent`, and `Vent`.
-- **`src/pages`**: Includes page components like `Home`, `Vents`, `MyVents`, `Signin`, `Signup`, `CreateVent`, `EditVent`, `UpdateProfile`, and `SingleVent`.
-- **`src/App.jsx`**: Sets up the routing for the application.
-- **`src/index.jsx`**: Entry point for the React application, including the `AuthProvider` for authentication context.
+- src/components: Contains React components such as `MyVent`, `SearchComponent`, and `Vent`.
+- src/pages: Includes page components like `Home`, `Vents`, `MyVents`, `Signin`, `Signup`, `CreateVent`, `EditVent`, `UpdateProfile`, and `SingleVent`.
+- src/App.jsx: Sets up the routing for the application.
+- src/index.jsx: Entry point for the React application, including the `AuthProvider` for authentication context.
 
 ### Backend (API)
 
